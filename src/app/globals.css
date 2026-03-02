@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  --primary-blue: #0066b3;
+  --primary-red: #c41e3a;
+  --dark-blue: #003366;
+  --light-blue: #4da6ff;
+  --text-dark: #1a1a1a;
+  --text-gray: #666666;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 50%, #e6f2ff 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-shadow {
+  box-shadow: 0 10px 40px rgba(0, 102, 179, 0.1);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 102, 179, 0.15);
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+  border-radius: 2px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.machine-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgba(0, 102, 179, 0.1);
+}
+
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
