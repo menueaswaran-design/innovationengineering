@@ -86,11 +86,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-3">
               <div className="relative w-14 h-14">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#c41e3a] to-[#8b1528] rounded-full flex items-center justify-center">
-                  <div className="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">IE</span>
-                  </div>
-                </div>
+                <img src="/logo/logo.png" alt="Innovate Engineering Logo" className="w-14 h-14 object-contain" />
               </div>
               <div>
                 <h1 className="text-xl font-bold">
@@ -151,9 +147,6 @@ export default function Header() {
               <Link href="#quality" className="font-medium text-gray-700 hover:text-[#0066b3] transition">
                 Quality
               </Link>
-              <Link href="#customers" className="font-medium text-gray-700 hover:text-[#0066b3] transition">
-                Customers
-              </Link>
               <Link 
                 href="#contact" 
                 className="bg-gradient-to-r from-[#0066b3] to-[#003366] text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all"
@@ -205,7 +198,6 @@ export default function Header() {
 
               <Link href="#industries" className="block py-2 font-medium text-gray-700">Industries</Link>
               <Link href="#quality" className="block py-2 font-medium text-gray-700">Quality</Link>
-              <Link href="#customers" className="block py-2 font-medium text-gray-700">Customers</Link>
               <Link 
                 href="#contact" 
                 className="block text-center bg-gradient-to-r from-[#0066b3] to-[#003366] text-white px-6 py-3 rounded-full font-medium"

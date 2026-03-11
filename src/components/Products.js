@@ -7,33 +7,33 @@ import { Settings, Cog, Zap, Box, Gauge, Ruler, RotateCcw, Wrench, Layers, Arrow
 
 const machineCategories = {
   'Vertical Milling Center': [
-    { name: 'HAAS VF4', image: '/home/cnc1.jpeg', specs: { xAxis: '1270 MM', yAxis: '508 MM', zAxis: '635 MM', spindle: '8100 R', toolPocket: '25 - BT40' }},
-    { name: 'JYOTI 850', image: '/home/cnc2.jpeg', specs: { xAxis: '800 MM', yAxis: '500 MM', zAxis: '500 MM', spindle: '10000 RPM', fourthAxis: '200 MM', toolPocket: '25 - BT40' }},
-    { name: 'MAKINO S33', image: '/home/cnc3.jpeg', specs: { xAxis: '650 MM', yAxis: '500 MM', zAxis: '450 MM', spindle: '20000 R', toolPocket: '30 - HSK A63' }},
-    { name: 'MAZAK FJV-250', image: '/home/cnc4.jpeg', specs: { xAxis: '600 MM', yAxis: '400 MM', zAxis: '400 MM', spindle: '8000 R', toolPocket: '30 - BT40' }},
-    { name: 'MAKINO SLIM 3N', image: '/home/cnc5.jpeg', specs: { xAxis: '500 MM', yAxis: '400 MM', zAxis: '400 MM', spindle: '10000 RPM', fourthAxis: '200 MM', toolPocket: '26 - HSK A50' }},
-    { name: 'MAKINO SLIM 3N (5-AXIS)', image: '/home/cnc1.jpeg', specs: { xAxis: '500 MM', yAxis: '400 MM', zAxis: '400 MM', spindle: '10000 RPM', fifthAxis: 'A + C', toolPocket: '26 - HSK A50' }},
-    { name: 'HAAS VF2', image: '/home/cnc2.jpeg', specs: { xAxis: '700 MM', yAxis: '400 MM', zAxis: '500 MM', spindle: '10000 RPM', fourthAxis: '200 MM', toolPocket: '26' }},
-    { name: 'YEONG CHIN (YCM-FV 56A)', image: '/home/cnc3.jpeg', specs: { xAxis: '560 MM', yAxis: '410 MM', zAxis: '440 MM', spindle: '10000 R', toolPocket: '20 - BT40' }},
-    { name: 'FANUC ROBODRILL α-T21iEe', image: '/home/cnc4.jpeg', specs: { xAxis: '500 MM', yAxis: '400 MM', zAxis: '330 MM', fourthAxis: '200 MM', spindle: '24000 R', toolPocket: '21 - BT30 A24' }},
-    { name: 'JYOTI RDX 20', image: '/home/cnc5.jpeg', specs: { xAxis: '820 MM', yAxis: '510 MM', zAxis: '510 MM', spindle: '8000 R', toolPocket: '20 - BT40' }},
+    { name: 'HAAS VF4', image: '/vmc/HAASVF4.jpeg', specs: { xAxis: '1270 MM', yAxis: '508 MM', zAxis: '635 MM', spindle: '8100 R', toolPocket: '25 - BT40' }},
+    { name: 'JYOTI 850', image: '/vmc/JYOTI.webp', specs: { xAxis: '800 MM', yAxis: '500 MM', zAxis: '500 MM', spindle: '10000 RPM', fourthAxis: '200 MM', toolPocket: '25 - BT40' }},
+    { name: 'MAKINO S33', image: '/vmc/MAKINOS33.jpg', specs: { xAxis: '650 MM', yAxis: '500 MM', zAxis: '450 MM', spindle: '20000 R', toolPocket: '30 - HSK A63' }},
+    { name: 'MAZAK FJV-250', image: '/vmc/MAZAK%20FJV-250.jpeg', specs: { xAxis: '600 MM', yAxis: '400 MM', zAxis: '400 MM', spindle: '8000 R', toolPocket: '30 - BT40' }},
+    { name: 'MAKINO SLIM 3N', image: '/vmc/MAKINO%20SLIM%203N.jpg', specs: { xAxis: '500 MM', yAxis: '400 MM', zAxis: '400 MM', spindle: '10000 RPM', fourthAxis: '200 MM', toolPocket: '26 - HSK A50' }},
+    { name: 'MAKINO SLIM 3N (5-AXIS)', image: '/vmc/MAKINO%20SLIM%203N%20(5-AXIS).jpeg', specs: { xAxis: '500 MM', yAxis: '400 MM', zAxis: '400 MM', spindle: '10000 RPM', fifthAxis: 'A + C', toolPocket: '26 - HSK A50' }},
+    { name: 'HAAS VF2', image: '/vmc/HAAS%20VF2.jpg', specs: { xAxis: '700 MM', yAxis: '400 MM', zAxis: '500 MM', spindle: '10000 RPM', fourthAxis: '200 MM', toolPocket: '26' }},
+    { name: 'YEONG CHIN (YCM-FV 56A)', image: '/vmc/YEONG%20CHIN%20(YCM-FV%2056A).jpeg', specs: { xAxis: '560 MM', yAxis: '410 MM', zAxis: '440 MM', spindle: '10000 R', toolPocket: '20 - BT40' }},
+    { name: 'FANUC ROBODRILL α-T21iEe', image: '/vmc/ANUC%20ROBODRILL%20%CE%B1-T21iEe.jpeg', specs: { xAxis: '500 MM', yAxis: '400 MM', zAxis: '330 MM', fourthAxis: '200 MM', spindle: '24000 R', toolPocket: '21 - BT30 A24' }},
+    { name: 'JYOTI RDX 20', image: '/vmc/JYOTI%20RDX%2020.jpeg', specs: { xAxis: '820 MM', yAxis: '510 MM', zAxis: '510 MM', spindle: '8000 R', toolPocket: '20 - BT40' }},
   ],
   'Turning Center': [
-    { name: 'TSUGAMI Mi06JC-II', image: '/home/cnc1.jpeg', specs: { xAxis: '210 MM', yAxis: '155 MM', maxTurning: 'Ø220 MM', spindle: '4500 min-1', stations: '8 Stage' }},
-    { name: 'JYOTI DX2005A', image: '/home/cnc2.jpeg', specs: { xAxis: '200 MM', zAxis: '500 MM', maxTurning: '250 MM', spindle: '4000 RPM', stations: '8 Stage' }},
-    { name: 'TSUGAMI Mi08j-II', image: '/home/cnc3.jpeg', specs: { xAxis: '260 MM', zAxis: '300 MM', maxTurning: 'Ø280', spindle: '4000 min-1', stations: '8 Stag' }},
-    { name: 'GOODWAY GCL-2', image: '/home/cnc4.jpeg', specs: { xAxis: '125 MM', zAxis: '320/620 MM', maxTurning: 'Ø230 MM', spindle: '4500 RPM', stations: '8 Stag' }},
-    { name: 'JYOTI DX 20074B', image: '/home/cnc5.jpeg', specs: { xAxis: '175 MM', zAxis: '400 MM', maxTurning: 'Ø320', spindle: '4000 RPM', stations: '8 Stag' }},
-    { name: 'MARSHALL 3050', image: '/home/cnc1.jpeg', specs: { xAxis: '160 MM', zAxis: '525/775 MM', maxTurning: 'Ø300 MM', spindle: '4000 RPM', stations: '8 Stag' }},
+    { name: 'TSUGAMI Mi06JC-II', image: '/tc/TSUGAMI%20Mi06JC-II.jpeg', specs: { xAxis: '210 MM', yAxis: '155 MM', maxTurning: 'Ø220 MM', spindle: '4500 min-1', stations: '8 Stage' }},
+    { name: 'JYOTI DX2005A', image: '/tc/JYOTI%20DX2005A.jpeg', specs: { xAxis: '200 MM', zAxis: '500 MM', maxTurning: '250 MM', spindle: '4000 RPM', stations: '8 Stage' }},
+    { name: 'TSUGAMI Mi08j-II', image: '/tc/TSUGAMI%20Mi08j-II.jpeg', specs: { xAxis: '260 MM', zAxis: '300 MM', maxTurning: 'Ø280', spindle: '4000 min-1', stations: '8 Stag' }},
+    { name: 'GOODWAY GCL-2', image: '/tc/GOODWAY%20GCL-2.jpeg', specs: { xAxis: '125 MM', zAxis: '320/620 MM', maxTurning: 'Ø230 MM', spindle: '4500 RPM', stations: '8 Stag' }},
+    { name: 'JYOTI DX 20074B', image: '/tc/JYOTI%20DX%2020074B.webp', specs: { xAxis: '175 MM', zAxis: '400 MM', maxTurning: 'Ø320', spindle: '4000 RPM', stations: '8 Stag' }},
+    { name: 'MARSHALL 3050', image: '/tc/MARSHALL%203050.jpeg', specs: { xAxis: '160 MM', zAxis: '525/775 MM', maxTurning: 'Ø300 MM', spindle: '4000 RPM', stations: '8 Stag' }},
   ],
   'Turn Milling Center': [
-    { name: 'TSUGAMI BO205', image: '/home/cnc2.jpeg', specs: { doubleSpindle: 'Bar', maxTurn: '20 MM x 150 L', toolStag: '21', liveTools: '4', mainSpindle: '10,000 RPM', subSpindle: '12,000 RPM' }},
+    { name: 'TSUGAMI BO205', image: '/tmc/TSUGAMI%20Mi06JC-II.jpeg', specs: { doubleSpindle: 'Bar', maxTurn: '20 MM x 150 L', toolStag: '21', liveTools: '4', mainSpindle: '10,000 RPM', subSpindle: '12,000 RPM' }},
   ],
   'Horizontal Machine Center': [
-    { name: 'JYOTI HX 400', image: '/home/cnc3.jpeg', specs: { toolHolder: 'BT 40', stations: '24', maxRPM: '10000', palletSize: '400 x 400', xAxis: '600', yAxis: '510', zAxis: '510' }},
+    { name: 'JYOTI HX 400', image: '/hmc/JYOTI%20HX%20400.webp', specs: { toolHolder: 'BT 40', stations: '24', maxRPM: '10000', palletSize: '400 x 400', xAxis: '600', yAxis: '510', zAxis: '510' }},
   ],
   'Wire Cut Machine': [
-    { name: 'SKITEK SF 45', image: '/home/cnc4.jpeg', specs: { tableSize: '580 X 850', maxWorkpiece: '450 Kgs', xAxis: '550', yAxis: '450', zAxis: '500' }},
+    { name: 'SKITEK SF 45', image: '/wcm/SKITEK%20SF%2045.jpeg', specs: { tableSize: '580 X 850', maxWorkpiece: '450 Kgs', xAxis: '550', yAxis: '450', zAxis: '500' }},
   ],
 };
 

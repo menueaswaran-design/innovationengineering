@@ -85,18 +85,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-            <div className="mt-12 flex items-center gap-4">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#c41e3a] to-[#8b1528] rounded-full flex items-center justify-center">
-                <div className="w-14 h-14 border-2 border-white rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">IE</span>
-                </div>
-              </div>
-              <div>
-                <h4 className="text-2xl font-bold">INNOVATE</h4>
-                <p className="text-[#4da6ff] font-semibold tracking-wider">ENGINEERING</p>
-              </div>
-            </div>
           </div>
 
           <div className="animate-fadeInUp" style={{ animationDelay: '0.2s' }}>

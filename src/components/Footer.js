@@ -29,11 +29,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#c41e3a] to-[#8b1528] rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">IE</span>
-                </div>
-              </div>
+              <img src="/logo/logo.png" alt="Innovate Engineering Logo" className="w-14 h-14 object-contain" />
               <div>
                 <h3 className="font-bold text-lg">INNOVATE</h3>
                 <p className="text-[#4da6ff] text-sm font-semibold">ENGINEERING</p>

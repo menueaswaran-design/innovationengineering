@@ -98,13 +98,9 @@ export default function Hero() {
               </div>
               
               {/* Center Logo */}
-              <div className="absolute top-64 left-1/2 -translate-x-1/2 w-44 h-44 rounded-3xl rotate-45 overflow-hidden shadow-2xl bg-gradient-to-br from-[#c41e3a] to-[#8b1528]">
+              <div className="absolute top-64 left-1/2 -translate-x-1/2 w-44 h-44 rounded-3xl rotate-45 overflow-hidden shadow-2xl bg-white">
                 <div className="-rotate-45 w-full h-full flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 border-4 border-white rounded-full flex items-center justify-center mx-auto mb-2">
-                      <span className="text-white font-bold text-xl">IE</span>
-                    </div>
-                  </div>
+                  <img src="/logo/logo.png" alt="Innovate Engineering Logo" className="w-24 h-24 object-contain" />
                 </div>
               </div>
               
@@ -122,9 +118,6 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Blue accent diamond */}
-              <div className="absolute bottom-52 left-1/3 w-24 h-24 rounded-3xl rotate-45 overflow-hidden shadow-2xl bg-[#4da6ff]">
-              </div>
             </div>
           </motion.div>
         </div>

@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { CheckCircle, Award, Shield, Microscope } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { CheckCircle, Award, Shield, Microscope, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const materials = [
   {
@@ -38,6 +39,119 @@ const qualityFeatures = [
   { icon: Award, title: 'ISO Certified', description: 'ISO 9001:2015 certified processes' },
   { icon: CheckCircle, title: 'Zero Defect', description: 'Commitment to zero-defect delivery' },
 ];
+
+const productImages = [
+  'ie1','ie2','ie3','ie4','ie5','ie6','ie7','ie8','ie9',
+  'ie10','ie11','ie12','ie13','ie14','ie16','ie17','ie18',
+  'ie19','ie20','ie21','ie22','ie23','ie24',
+];
+
+function PrecisionComponentsScroller() {
+  const scrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const SCROLL_AMOUNT = 480;
+
+  const updateArrows = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  };
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -SCROLL_AMOUNT, behavior: 'smooth' });
+    setTimeout(updateArrows, 350);
+  };
+
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: SCROLL_AMOUNT, behavior: 'smooth' });
+    setTimeout(updateArrows, 350);
+  };
+
+  // Split into two rows
+  const row1 = productImages.filter((_, i) => i % 2 === 0);
+  const row2 = productImages.filter((_, i) => i % 2 === 1);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="mt-20"
+    >
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-3">
+          <span className="text-[#0066b3]">PRECISION</span>{' '}
+          <span className="text-[#c41e3a]">COMPONENTS</span>
+        </h2>
+        <div className="w-16 h-1 bg-[#c41e3a] mx-auto rounded-full" />
+      </div>
+
+      <div className="relative">
+        {/* Left Arrow */}
+        <button
+          onClick={scrollLeft}
+          disabled={!canScrollLeft}
+          className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-200 -translate-x-1/2
+            ${canScrollLeft ? 'opacity-100 hover:bg-[#0066b3] hover:text-white hover:border-[#0066b3]' : 'opacity-30 cursor-not-allowed'}`}
+          aria-label="Scroll left"
+        >
+          <ChevronLeft size={22} />
+        </button>
+
+        {/* Scrollable container */}
+        <div
+          ref={scrollRef}
+          onScroll={updateArrows}
+          className="overflow-x-auto overflow-y-hidden scrollbar-hide"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          <div className="flex flex-col gap-3" style={{ width: 'max-content' }}>
+            {/* Row 1 */}
+            <div className="flex gap-3">
+              {row1.map((name) => (
+                <div key={name} className="relative w-[324px] h-[224px] shrink-0 rounded-xl overflow-hidden group">
+                  <Image
+                    src={`/products/${name}.jpeg`}
+                    alt={name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+            {/* Row 2 */}
+            <div className="flex gap-3">
+              {row2.map((name) => (
+                <div key={name} className="relative w-[324px] h-[224px] shrink-0 rounded-xl overflow-hidden group">
+                  <Image
+                    src={`/products/${name}.jpeg`}
+                    alt={name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={scrollRight}
+          disabled={!canScrollRight}
+          className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-200 translate-x-1/2
+            ${canScrollRight ? 'opacity-100 hover:bg-[#0066b3] hover:text-white hover:border-[#0066b3]' : 'opacity-30 cursor-not-allowed'}`}
+          aria-label="Scroll right"
+        >
+          <ChevronRight size={22} />
+        </button>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Quality() {
   return (
@@ -135,52 +249,7 @@ export default function Quality() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              <span className="text-[#0066b3]">PRECISION</span>{' '}
-              <span className="text-[#c41e3a]">COMPONENTS</span>
-            </h2>
-            <div className="w-16 h-1 bg-[#c41e3a] mx-auto mb-3 rounded-full" />
-            <p className="text-gray-500 text-sm max-w-lg mx-auto">
-              High-quality machined components for various applications
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { label: 'CNC Turned Parts', img: '/home/cnc1.jpeg' },
-              { label: 'Milled Components', img: '/home/cnc2.jpeg' },
-              { label: 'Precision Shafts', img: '/home/cnc3.jpeg' },
-              { label: 'Custom Fixtures', img: '/home/cnc4.jpeg' },
-              { label: 'Valve Components', img: '/home/cnc5.jpeg' },
-              { label: 'Pump Parts', img: '/home/cnc1.jpeg' },
-              { label: 'Hydraulic Parts', img: '/home/cnc2.jpeg' },
-              { label: 'Aerospace Parts', img: '/home/cnc3.jpeg' },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="group relative rounded-xl overflow-hidden aspect-[4/3] cursor-default"
-              >
-                <Image
-                  src={item.img}
-                  alt={item.label}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <span className="text-white text-xs font-semibold">{item.label}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        <PrecisionComponentsScroller />
       </div>
     </section>
   );
